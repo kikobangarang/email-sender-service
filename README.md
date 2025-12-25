@@ -82,3 +82,9 @@ The worker pool size and other settings can be adjusted in the `main.go` file, u
 		BatchSize:    10,
 	}
 ```
+
+### To do
+
+- Use an indempotency key to avoid spam requests
+- Add rate limiting per IP
+- Status endpoint to check queued/sent/failed emails
