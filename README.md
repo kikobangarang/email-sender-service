@@ -21,7 +21,7 @@ Supports asynchronous email sending via a worker pool, SQLite persistence, and S
 ### 1. Clone the repository
 
 ```bash
-git clone [https://github.com/kikobangarang/email-sender-service.git](https://github.com/kikobangarang/email-sender-service.git)
+git clone https://github.com/kikobangarang/email-sender-service.git
 cd email-sender-service
 go mod download
 ```
