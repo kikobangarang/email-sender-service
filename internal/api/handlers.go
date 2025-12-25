@@ -29,7 +29,6 @@ func sendEmailHandler(w http.ResponseWriter, r *http.Request) {
 
 	w.WriteHeader(http.StatusAccepted)
 	w.Write([]byte("email queued for " + email + ":\n" +
-		"From: " + emailReq.From + "\n" +
 		"Subject: " + emailReq.Subject + "\n" +
 		"Body: " + emailReq.Body + "\n"))
 }
