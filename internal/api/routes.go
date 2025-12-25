@@ -1,8 +1,15 @@
 package api
 
-import "net/http"
+import (
+	"net/http"
 
-func RegisterHandlers(mux *http.ServeMux) {
+	"github.com/kikobangarang/email-sender-service/internal/email"
+)
+
+func RegisterHandlers(mux *http.ServeMux, svc *email.Service) {
 	mux.HandleFunc("/health", healthHandler)
-	mux.HandleFunc("/send/", sendEmailHandler) // expects /send/{email}
+	// expects /send/{email}
+	mux.HandleFunc("/send/", func(w http.ResponseWriter, r *http.Request) {
+		sendEmailHandler(w, r, svc)
+	})
 }

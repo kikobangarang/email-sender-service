@@ -22,9 +22,6 @@ func parseSendEmailRequest(r *http.Request) (*SendEmailRequest, error) {
 		if err := dec.Decode(&req); err != nil {
 			return nil, err
 		}
-		if req.Subject == "" || req.Body == "" {
-			return nil, errors.New("subject and body are required")
-		}
 		return &req, nil
 
 	case strings.HasPrefix(ct, "application/x-www-form-urlencoded"):
