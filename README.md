@@ -87,6 +87,5 @@ The worker pool size and other settings can be adjusted in the `main.go` file, u
 
 - Use an indempotency key to avoid spam requests
 - Add rate limiting per IP
-- Status endpoint to check queued/sent/failed emails
 - Email templates
 - Scheduler for sending at set times

@@ -171,3 +171,26 @@ func (r *SQLiteRepository) MarkFailed(id int64, sendErr error) error {
 
 	return nil
 }
+
+func (r *SQLiteRepository) FetchJobById(id int) (*EmailJob, error) {
+	var job EmailJob
+	err := r.db.QueryRow(
+		`SELECT id, to_email, subject, body, status, attempts, created_at
+		 FROM email_jobs
+		 WHERE id = ?`,
+		id,
+	).Scan(
+		&job.ID,
+		&job.To,
+		&job.Subject,
+		&job.Body,
+		&job.Status,
+		&job.Attempts,
+		&job.CreatedAt,
+	)
+	if err != nil {
+		return nil, err
+	}
+
+	return &job, nil
+}

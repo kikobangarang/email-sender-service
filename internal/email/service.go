@@ -44,3 +44,11 @@ func (s *Service) SendEmail(to, subject, body string) error {
 
 	return s.repo.Create(job)
 }
+
+func (s *Service) GetJobByID(id int) (*repository.EmailJob, error) {
+	job, err := s.repo.FetchJobById(id)
+	if (*job == repository.EmailJob{}) {
+		return nil, errors.New("job not found")
+	}
+	return job, err
+}
